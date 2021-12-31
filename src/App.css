@@ -3,19 +3,23 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  background: #90CAF9;
+  background-repeat: no-repeat;
 }
 
 .App-header {
-  background-color: #262626;
+  background: black;
   overflow: visible;
   width: 100%;
   text-align: center;
-  color: white;
-  height: 120px;
+  color: RGB(73,254,209);
+  height: 125px;
 }
 
 .Messages-list {
   padding: 20px 0;
+  background: #90CAF9;
+  background-repeat: no-repeat;
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
@@ -27,11 +31,10 @@
 
 .Messages-message {
   display: flex;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .Messages-message.currentMember {
-  /*justify-content: flex-end;*/
   flex-direction: row-reverse;
   text-align: right;
 }
@@ -45,8 +48,8 @@
 }
 
 .Messages-message > .avatar {
-  height: 35px;
-  width: 35px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
   display: inline-block;
   margin: 0 10px -10px;
@@ -54,9 +57,9 @@
 
 .Message-content > .username {
   display: block;
-  color: gray;
-  font-size: 14px;
-  padding-bottom: 4px;
+  color: black;
+  font-size: 16px;
+  padding-bottom: 5px;
 }
 
 .Message-content > .text {
@@ -64,13 +67,15 @@
   max-width: 400px;
   margin: 0;
   border-radius: 12px;
-  background-color: cornflowerblue;
-  color: white;
+  background-color: RGB(73,254,209);
+  color: black;
   display: inline-block;
 }
 
+
+
 .currentMember > .Message-content .text {
-  background-color: orangered;
+  background-color: RGB(73,254,209);
 }
 
 form {
@@ -82,19 +87,21 @@ form {
 }
 
 input {
-  padding: 5px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 8px;
-  border: 1px solid orangered;
+  border: 1px solid RGB(73,254,209);
   flex-grow: 1;
 }
+
 
 button {
   padding: 5px 10px;
   font-size: 16px;
-  background-color: orangered;
-  color: white;
+  background-color: RGB(73,254,209);
+  color: black;
   border: none;
   border-radius: 8px;
   margin-left: 10px;
 }
+

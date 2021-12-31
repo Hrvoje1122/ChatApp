@@ -1,14 +1,40 @@
 import {Component} from "react";
 import React from "react";
 
+
 class Input extends Component {
   state = {
-    text: ""
+    text: "",
+    typing: false,
+    memberStopTypingTimeout: 0
   }
 
   onChange(e) {
+    const {typing} = this.state;
     this.setState({text: e.target.value});
-    this.props.onInputChange();
+    this.setMemberStopTypingTimeout();
+    if (typing) {
+      return;
+    }
+    this.setMemberTyping(true);
+    this.props.onMemberStartTyping();
+  }
+
+  setMemberStopTypingTimeout() {
+    const {memberStopTypingTimeout} = this.state;
+    if (memberStopTypingTimeout) {
+      clearTimeout(memberStopTypingTimeout);
+    }
+    this.setState({
+      memberStopTypingTimeout: setTimeout(() => {
+        this.setState({typing: false});
+        this.props.onMemberStopTyping();
+      }, 800)
+    });
+  }
+
+  setMemberTyping(typing) {
+    this.setState({typing: typing});
   }
 
   onSubmit(e) {
@@ -19,18 +45,18 @@ class Input extends Component {
 
   render() {
     return (
-      <div className="Input">
-        <form onSubmit={e => this.onSubmit(e)}>
-          <input
-            onChange={e => this.onChange(e)}
-            value={this.state.text}
-            type="text"
-            placeholder="Enter your message and press ENTER"
-            autofocus="true"
-          />
-          <button>Send</button>
-        </form>
-      </div>
+        <div className="Input">
+          <form onSubmit={e => this.onSubmit(e)}>
+            <input
+                onChange={e => this.onChange(e)}
+                value={this.state.text}
+                type="text"
+                placeholder="Enter your message and press ENTER"
+                autofocus="true"
+            />
+            <button>Send</button>
+          </form>
+        </div>
     );
   }
 }
