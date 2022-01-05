@@ -5,17 +5,11 @@ import Input from "./Input";
 
 function randomName() {
     const adjectives = [
-        "autumn", "hidden", "bitter", "misty", "silent", "empty", "dry", "dark",
-        "summer", "icy", "delicate", "quiet", "white", "cool", "spring", "winter",
-    ];
-    const nouns = [
-        "waterfall", "river", "breeze", "moon", "rain", "wind", "sea", "morning",
-        "snow", "lake", "sunset", "pine", "shadow", "leaf", "dawn", "glitter",
-        "forest", "hill", "cloud", "meadow", "sun", "glade", "bird", "brook",
+        "Jackhammer", "Chipper", "Tricky", "Hurricane", "Petit", "Sketch", "Mutt", "Joker",
+        "Belle", "Rock", "Gibby", "Crow", "Icy", "Magica", "Dizzy", "Cyclops",
     ];
     const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-    const noun = nouns[Math.floor(Math.random() * nouns.length)];
-    return adjective + noun;
+    return adjective;
 }
 
 function randomColor() {
@@ -106,7 +100,7 @@ class App extends Component {
                     currentMember={this.state.member}
                 />
                 <Input
-                    onSendMessage={this.onSendMessage}
+                    onSendMessage={(inputText) => this.onSendMessage(inputText)}
                     onMemberStartTyping={this.notifyMemberStartTyping}
                     onMemberStopTyping={this.notifyMemberStopTyping}
                 />

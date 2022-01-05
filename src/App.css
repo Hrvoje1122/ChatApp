@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  background: #90CAF9;
+  background: white;
   background-repeat: no-repeat;
 }
 
@@ -12,13 +12,13 @@
   overflow: visible;
   width: 100%;
   text-align: center;
-  color: RGB(73,254,209);
+  color: white;
   height: 125px;
 }
 
 .Messages-list {
   padding: 20px 0;
-  background: #90CAF9;
+  background: white;
   background-repeat: no-repeat;
   max-width: 900px;
   width: 100%;
