@@ -27,7 +27,7 @@ class App extends Component {
             member: '',
             typing: false,
         }
-    }
+    };
 
     constructor(props) {
         super(props);
@@ -75,21 +75,13 @@ class App extends Component {
         });
     }
 
-    setMemberStoppedTyping() {
-        this.setState({
-            memberTyping: {
-                typing: false
-            }
-        });
-    }
-
     render() {
         const {memberTyping} = this.state;
         let typing = '';
         if (memberTyping.typing) {
             typing = memberTyping.member + ' is typing...';
         }
-        return  (
+        return (
             <div className="App">
                 <div className="App-header">
                     <h1>Chat</h1>
@@ -100,7 +92,7 @@ class App extends Component {
                     currentMember={this.state.member}
                 />
                 <Input
-                    onSendMessage={(inputText) => this.onSendMessage(inputText)}
+                    onSendMessage={this.onSendMessage}
                     onMemberStartTyping={this.notifyMemberStartTyping}
                     onMemberStopTyping={this.notifyMemberStopTyping}
                 />
@@ -113,21 +105,21 @@ class App extends Component {
             room: "observable-room",
             message: inputText
         });
-    }
+    };
 
     notifyMemberStartTyping = () => {
         this.drone.publish({
             room: "observable-room",
             message: {userTyping: true}
         });
-    }
+    };
 
     notifyMemberStopTyping = () => {
         this.drone.publish({
             room: "observable-room",
             message: {userTyping: false}
         });
-    }
+    };
 
 }
 
